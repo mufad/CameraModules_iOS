@@ -1,24 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1h6-OV-bzv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" userLabel="HomeViewController" customClass="ViewController" customModule="CameraModules" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_one" translatesAutoresizingMaskIntoConstraints="NO" id="blA-0Q-dKa">
+                                <rect key="frame" x="-33" y="269" width="480" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="blA-0Q-dKa" secondAttribute="height" multiplier="24:5" id="iHD-Pd-QkW"/>
+                                    <constraint firstAttribute="width" constant="240" id="n70-w9-ZXI"/>
+                                    <constraint firstAttribute="height" constant="100" id="rhf-7T-4Ac"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBa-Ko-RgX">
+                                <rect key="frame" x="152" y="433" width="110" height="30"/>
+                                <state key="normal" title="Camera Overlay"/>
+                                <connections>
+                                    <segue destination="xqP-SO-uvX" kind="show" id="yx7-eL-h1q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joc-Gc-xxJ">
+                                <rect key="frame" x="138" y="479" width="138" height="30"/>
+                                <state key="normal" title="Camera Blink Check"/>
+                                <connections>
+                                    <segue destination="vC1-pj-1bZ" kind="show" id="Sch-pF-4ZX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pBa-Ko-RgX" firstAttribute="top" secondItem="blA-0Q-dKa" secondAttribute="bottom" constant="64" id="5jA-iO-yvz"/>
+                            <constraint firstItem="pBa-Ko-RgX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7YW-xc-uxa"/>
+                            <constraint firstItem="joc-Gc-xxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SNK-pB-uVl"/>
+                            <constraint firstItem="joc-Gc-xxJ" firstAttribute="top" secondItem="pBa-Ko-RgX" secondAttribute="bottom" constant="16" id="aC9-ed-Su3"/>
+                            <constraint firstItem="pBa-Ko-RgX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rbl-KU-g5V"/>
+                            <constraint firstItem="blA-0Q-dKa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uWc-lC-2tu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bnK-rN-uhF"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+        </scene>
+        <!--CameraOverLay-->
+        <scene sceneID="BXz-sn-sHi">
+            <objects>
+                <viewController id="xqP-SO-uvX" userLabel="CameraOverLay" customClass="CameraOverlay" customModule="CameraModules" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dOe-70-PJm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYV-CD-B2h" userLabel="CameraFeed">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvM-XI-2Pc" userLabel="CameraOverlay">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AYV-CD-B2h" firstAttribute="leading" secondItem="SP3-XS-Iwy" secondAttribute="leading" id="1y2-Md-gMd"/>
+                            <constraint firstItem="SP3-XS-Iwy" firstAttribute="trailing" secondItem="AYV-CD-B2h" secondAttribute="trailing" id="HhJ-3D-vJc"/>
+                            <constraint firstItem="SP3-XS-Iwy" firstAttribute="bottom" secondItem="rvM-XI-2Pc" secondAttribute="bottom" id="Hzc-eO-qCh"/>
+                            <constraint firstItem="SP3-XS-Iwy" firstAttribute="trailing" secondItem="rvM-XI-2Pc" secondAttribute="trailing" id="NHP-u8-rhg"/>
+                            <constraint firstItem="rvM-XI-2Pc" firstAttribute="top" secondItem="SP3-XS-Iwy" secondAttribute="top" id="VEo-Re-cUW"/>
+                            <constraint firstItem="AYV-CD-B2h" firstAttribute="top" secondItem="dOe-70-PJm" secondAttribute="topMargin" id="aXs-a3-Z84"/>
+                            <constraint firstItem="rvM-XI-2Pc" firstAttribute="top" secondItem="SP3-XS-Iwy" secondAttribute="top" id="dzD-4z-313"/>
+                            <constraint firstItem="rvM-XI-2Pc" firstAttribute="leading" secondItem="SP3-XS-Iwy" secondAttribute="leading" id="pZX-DK-iFZ"/>
+                            <constraint firstItem="SP3-XS-Iwy" firstAttribute="bottom" secondItem="AYV-CD-B2h" secondAttribute="bottom" id="qHv-8A-F0W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SP3-XS-Iwy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fsb-o3-WKe"/>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="AYV-CD-B2h" id="sWY-vl-JHC"/>
+                        <outlet property="overlayView" destination="rvM-XI-2Pc" id="5TC-ey-b6D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Gx-Qc-P7x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.9565217391305" y="-386.38392857142856"/>
+        </scene>
+        <!--EyeBlinking-->
+        <scene sceneID="lMP-iP-Krx">
+            <objects>
+                <viewController id="vC1-pj-1bZ" userLabel="EyeBlinking" customClass="EyeBlinkViewController" customModule="CameraModules" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w6e-zu-EKg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYs-hN-egb" userLabel="CameraView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5S-HF-ieh" userLabel="Overlay">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1ub-J9-HMA" firstAttribute="trailing" secondItem="bYs-hN-egb" secondAttribute="trailing" id="2bn-5T-zmv"/>
+                            <constraint firstItem="Y5S-HF-ieh" firstAttribute="leading" secondItem="1ub-J9-HMA" secondAttribute="leading" id="9yi-E1-LYq"/>
+                            <constraint firstItem="1ub-J9-HMA" firstAttribute="bottom" secondItem="bYs-hN-egb" secondAttribute="bottom" id="Q9f-FM-yy6"/>
+                            <constraint firstItem="bYs-hN-egb" firstAttribute="top" secondItem="1ub-J9-HMA" secondAttribute="top" id="fPa-M2-jIL"/>
+                            <constraint firstItem="Y5S-HF-ieh" firstAttribute="top" secondItem="1ub-J9-HMA" secondAttribute="top" id="meh-4N-aQC"/>
+                            <constraint firstItem="bYs-hN-egb" firstAttribute="leading" secondItem="1ub-J9-HMA" secondAttribute="leading" id="nPz-Ok-Lcr"/>
+                            <constraint firstItem="1ub-J9-HMA" firstAttribute="bottom" secondItem="Y5S-HF-ieh" secondAttribute="bottom" id="omC-zA-qgu"/>
+                            <constraint firstItem="1ub-J9-HMA" firstAttribute="trailing" secondItem="Y5S-HF-ieh" secondAttribute="trailing" id="vv5-cY-M1c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1ub-J9-HMA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zbY-4v-0YI"/>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="bYs-hN-egb" id="u3i-nc-Z2c"/>
+                        <outlet property="overlayView" destination="Y5S-HF-ieh" id="6Si-sc-mhq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mvD-wJ-2pQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.9565217391305" y="430.58035714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ICN-Jg-DY8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1h6-OV-bzv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6T2-kr-8Ac">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="b2t-Kq-lGL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oev-zI-hhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_one" width="50" height="50"/>
+    </resources>
 </document>
